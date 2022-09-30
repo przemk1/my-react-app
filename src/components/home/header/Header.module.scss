@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 30vh;
+  height: 30vh;
+  @media only screen and (max-width: 37.5em) {
+    margin-top: 20vh;
+    height: 20vh;
+  }
+  @media only screen and (max-width: 31.25em) {
+    margin-top: 10vh;
+  }
+}
+
+h1 {
+  font-size: 52px;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20px;
+  @media only screen and (max-width: 37.5em) {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  color: aqua;
+  text-align: start;
+  font-size: 20px;
+  display: block;
+  padding: 10px;
+  @media only screen and (max-width: 56.25em) {
+    text-align: center;
+  }
+  @media only screen and (max-width: 37.5em) {
+    font-size: 16px;
+  }
+}
