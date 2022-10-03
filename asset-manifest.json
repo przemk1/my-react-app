@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/bmi-bf-kalkulator/static/css/main.febccc1f.css",
+    "main.js": "/bmi-bf-kalkulator/static/js/main.7b769b44.js",
+    "static/js/787.c1112931.chunk.js": "/bmi-bf-kalkulator/static/js/787.c1112931.chunk.js",
+    "static/media/fit.jpg": "/bmi-bf-kalkulator/static/media/fit.331b698c041f5b43306b.jpg",
+    "static/media/background.jpg": "/bmi-bf-kalkulator/static/media/background.e9e946ad2b81a85c33e5.jpg",
+    "static/media/cm.jpg": "/bmi-bf-kalkulator/static/media/cm.55b2d56b14d5083b48cb.jpg",
+    "static/media/fat.jpg": "/bmi-bf-kalkulator/static/media/fat.86a395f9b1acffb7a630.jpg",
+    "static/media/skinnyfat.jpg": "/bmi-bf-kalkulator/static/media/skinnyfat.12bc5e6d155a7ff27cdd.jpg",
+    "index.html": "/bmi-bf-kalkulator/index.html",
+    "main.febccc1f.css.map": "/bmi-bf-kalkulator/static/css/main.febccc1f.css.map",
+    "main.7b769b44.js.map": "/bmi-bf-kalkulator/static/js/main.7b769b44.js.map",
+    "787.c1112931.chunk.js.map": "/bmi-bf-kalkulator/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.febccc1f.css",
+    "static/js/main.7b769b44.js"
+  ]
+}
