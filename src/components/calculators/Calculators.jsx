@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import classes from "./Calculators.module.scss";
+import Navigation from "../navigation/Navigation";
 
 const Calculators = () => {
   const [weight, setWeight] = useState("");
@@ -100,7 +101,9 @@ const Calculators = () => {
   };
 
   return (
-    <div>
+    <div class="app">
+      <div class="BG"></div>
+      <Navigation />
       <div className={classes.header}>
         <h2 className={classes.calc__header}>
           Wypełnij trzy pola aby obliczyc swój wskaźnik masy ciała BMI i poziom
