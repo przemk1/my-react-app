@@ -15,7 +15,7 @@ const Footer = () => {
 
         <div>
           <Link to="/calculators">
-            <button className={classes.footer__button}>kalkulatory</button>
+            <button className={classes.footer__button}>KALKULATORY</button>
           </Link>
         </div>
       </div>

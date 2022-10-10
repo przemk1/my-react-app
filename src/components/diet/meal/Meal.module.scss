@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.line__1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px;
+}
+
+.rows1 {
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  li {
+    list-style: none;
+  }
+}
+
+.rows2 {
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 60px;
+  li {
+    list-style: none;
+  }
+}
+
+select {
+  height: 40px;
+  min-width: 50px;
+}

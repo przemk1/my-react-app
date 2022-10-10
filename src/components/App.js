@@ -1,6 +1,8 @@
 import "./App.css";
 import Home from "./home/Home";
 import Calculators from "./calculators/Calculators";
+import Demand from "./demand/Demand";
+import Diet from "./diet/Diet";
 
 import { createBrowserRouter, RouterProvider, Routes } from "react-router-dom";
 import Navigation from "./navigation/Navigation";
@@ -15,6 +17,14 @@ const router = createBrowserRouter(
     {
       path: "calculators",
       element: <Calculators />,
+    },
+    {
+      path: "demand",
+      element: <Demand />,
+    },
+    {
+      path: "diet",
+      element: <Diet />,
     },
   ],
   {

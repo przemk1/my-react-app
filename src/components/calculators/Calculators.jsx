@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import classes from "./Calculators.module.scss";
 import Navigation from "../navigation/Navigation";
 
@@ -7,6 +7,8 @@ const Calculators = () => {
   const [weight, setWeight] = useState("");
   const [waist, setWaist] = useState("");
   const [height, setHeight] = useState("");
+
+  const myRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,6 +51,7 @@ const Calculators = () => {
       waist: waist,
       height: height,
     });
+    myRef.current.scrollIntoView();
   };
 
   const Results = () => {
@@ -119,6 +122,7 @@ const Calculators = () => {
             placeholder="kg"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
+            required
           />
 
           <p>Twój obwód pasa w centymatrach: </p>
@@ -128,6 +132,7 @@ const Calculators = () => {
             placeholder="cm"
             value={waist}
             onChange={(e) => setWaist(e.target.value)}
+            required
           />
 
           <p>Twój wzrost w metrach: </p>
@@ -137,6 +142,7 @@ const Calculators = () => {
             placeholder="m"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
+            required
           />
 
           <button type="submit" className={classes.calc__button}>
@@ -144,7 +150,7 @@ const Calculators = () => {
           </button>
         </form>
       </div>
-      <div>{isShown && <Results />}</div>
+      <div ref={myRef}>{isShown && <Results />}</div>
     </div>
   );
 };

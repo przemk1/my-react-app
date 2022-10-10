@@ -12,6 +12,14 @@ const Navigation = () => {
       <Link to="/calculators">
         <nav> KALKULATORY </nav>
       </Link>
+
+      <Link to="/demand">
+        <nav> ZAPOTRZEBOWANIE </nav>
+      </Link>
+
+      <Link to="/diet">
+        <nav> DIETA </nav>
+      </Link>
     </div>
   );
 };

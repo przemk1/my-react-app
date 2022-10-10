@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.432);
+  margin: 100px;
+  border-radius: 50px;
+  padding-top: 50px;
+}
+
+.header {
+  margin: 0 50px;
+}
+
+.demand__header {
+  margin: 100px auto;
+  line-height: 1.8;
+}
+
+label {
+  color: black;
+  margin: 20px;
+  width: 100px;
+  font-weight: bold;
+  display: grid;
+  align-items: center;
+}
+
+input {
+  color: black;
+  font-weight: bold;
+  min-width: 10px;
+  min-height: 35px;
+  border: solid 2px aqua;
+  border-radius: 10px;
+}
+
+span {
+  color: black;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.form__group {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.title__small {
+  display: flex;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 200px;
+  justify-content: end;
+  font-size: 20px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.title__small__kcal {
+  display: flex;
+  margin-left: 50px;
+  margin-right: 50px;
+  width: 200px;
+  justify-content: end;
+  font-size: 20px;
+  text-align: right;
+  text-transform: uppercase;
+  color: black;
+  padding-bottom: 50px;
+  font-weight: bold;
+}
+
+.training {
+  margin: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.kcal {
+  background-color: aqua;
+  padding: 50px 0;
+  margin-top: 50px;
+  border-radius: 50px;
+}
+
+.inp {
+  display: flex;
+  gap: 50px;
+}
+
+.checkbox {
+  margin-left: 200px;
+  display: grid;
+  grid-template-columns: 100px 300px;
+  justify-items: center;
+  input {
+    width: 25px;
+  }
+}
+
+.demand__button {
+  margin: 50px 100px 100px 200px;
+  padding: 10px 30px 10px 30px;
+  font-weight: bold;
+  @media only screen and (max-width: 37.5em) {
+    margin: 50px 100px;
+  }
+  border: solid 2px aqua;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  &:hover {
+    background-color: aqua;
+    color: #ccc;
+  }
+}
+
+.paragraph {
+  margin-top: 100px;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0 50px;
+}
+
+.diet__header {
+  margin: 100px auto;
+  line-height: 1.8;
+}
+
+.line__1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px;
+}
+
+.rows1 {
+  color: aqua;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  li {
+    list-style: none;
+  }
+}
+
+.rows2 {
+  color: aqua;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 60px;
+  li {
+    list-style: none;
+  }
+}
+
+.diet__button {
+  margin: 50px;
+  padding: 10px 30px 10px 30px;
+  font-weight: bold;
+  @media only screen and (max-width: 37.5em) {
+    margin: 50px 100px;
+  }
+  border: solid 2px aqua;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  &:hover {
+    background-color: aqua;
+    color: #ccc;
+  }
+}
