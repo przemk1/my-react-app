@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-react-app/static/css/main.5ba398a1.css",
-    "main.js": "/my-react-app/static/js/main.cd44d184.js",
+    "main.css": "/my-react-app/static/css/main.7d1dcb95.css",
+    "main.js": "/my-react-app/static/js/main.017e37a9.js",
     "static/js/787.c1112931.chunk.js": "/my-react-app/static/js/787.c1112931.chunk.js",
     "static/media/fit.jpg": "/my-react-app/static/media/fit.331b698c041f5b43306b.jpg",
     "static/media/background.jpg": "/my-react-app/static/media/background.e9e946ad2b81a85c33e5.jpg",
@@ -9,12 +9,12 @@
     "static/media/fat.jpg": "/my-react-app/static/media/fat.86a395f9b1acffb7a630.jpg",
     "static/media/skinnyfat.jpg": "/my-react-app/static/media/skinnyfat.12bc5e6d155a7ff27cdd.jpg",
     "index.html": "/my-react-app/index.html",
-    "main.5ba398a1.css.map": "/my-react-app/static/css/main.5ba398a1.css.map",
-    "main.cd44d184.js.map": "/my-react-app/static/js/main.cd44d184.js.map",
+    "main.7d1dcb95.css.map": "/my-react-app/static/css/main.7d1dcb95.css.map",
+    "main.017e37a9.js.map": "/my-react-app/static/js/main.017e37a9.js.map",
     "787.c1112931.chunk.js.map": "/my-react-app/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ba398a1.css",
-    "static/js/main.cd44d184.js"
+    "static/css/main.7d1dcb95.css",
+    "static/js/main.017e37a9.js"
   ]
 }
