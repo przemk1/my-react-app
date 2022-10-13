@@ -1,41 +1,42 @@
-import React, { useState } from "react";
-import { useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
+import { useEffect } from "react";
 import classes from "./Meal.module.scss";
+import { DietContext } from "../Diet";
 
 const Meal = (props) => {
   const [meals, setMeals] = useState("");
   const [ammount, setAmmount] = useState("");
-  console.log(props.protein);
   const [res, setRes] = useState({
     ammount: 0,
     meals: 0,
   });
 
-  const emitMeals = () => {
-    props.countMeals({
-      protein: (meals.protein * ammount) / 100,
-      fat: (meals.fat * ammount) / 100,
-      carbo: (meals.carbo * ammount) / 100,
-      kcal: (meals.kcal * ammount) / 100,
-    });
-  };
+  const provided = useContext(DietContext);
+
+  const totalProtein = meals.protein ? (meals.protein * ammount) / 100 : 0;
+  const totalFat = meals.fat ? (meals.fat * ammount) / 100 : 0;
+  const totalCarbo = meals.carbo ? (meals.carbo * ammount) / 100 : 0;
+  const totalKcal = meals.kcal ? (meals.kcal * ammount) / 100 : 0;
 
   const ammountChange = (e) => {
     setAmmount(e.target.value);
-    setTimeout(() => {
-      emitMeals();
-    });
   };
 
   const mealsChange = (e) => {
     setMeals(props.products.find((product) => product.name === e.target.value));
-    setTimeout(() => {
-      emitMeals();
-    });
-    props.setProtein(totalProtein);
   };
 
-  console.log(totalProtein);
+  useEffect(() => {
+    provided.setValue({
+      ...provided.value,
+      [props.item]: {
+        protein: totalProtein,
+        fat: totalFat,
+        carbo: totalCarbo,
+        kcal: totalKcal,
+      },
+    });
+  }, [meals, ammount]);
 
   return (
     <div className={classes.line__1}>
@@ -69,10 +70,10 @@ const Meal = (props) => {
       <div>
         <div>
           <ul className={classes.rows2}>
-            <li>{totalProtein} g</li>
-            <li>{(meals.fat * ammount) / 100} g</li>
-            <li>{(meals.carbo * ammount) / 100} g</li>
-            <li>{(meals.kcal * ammount) / 100} kcal</li>
+            <li>{totalProtein.toFixed(1)} g</li>
+            <li>{totalFat.toFixed(1)} g</li>
+            <li>{totalCarbo.toFixed(1)} g</li>
+            <li>{totalKcal.toFixed()} kcal</li>
           </ul>
         </div>
       </div>

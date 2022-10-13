@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 import classes from "./Calculators.module.scss";
 import Navigation from "../navigation/Navigation";
+import { Link } from "react-router-dom";
 
 const Calculators = () => {
   const [weight, setWeight] = useState("");
@@ -30,7 +31,7 @@ const Calculators = () => {
     const newBf =
       ((1.634 * res.waist - 0.1804 * res.weight - 98.42) * 100) /
       (res.weight * 2.2);
-    const newBmi = res.weight / (res.height * res.height);
+    const newBmi = res.weight / ((res.height / 100) * (res.height / 100));
 
     setIndicators({
       bf: newBf,
@@ -99,6 +100,19 @@ const Calculators = () => {
             ) : null}
           </p>
         </div>
+        <div className={classes.calculators__footer}>
+          <div>
+            <h3>Przejdź do zapotrzebowania i oblicz swoje kalorie:</h3>
+          </div>
+
+          <div>
+            <Link to="/demand">
+              <button className={classes.calculators__footer__button}>
+                ZAPOTRZEBOWANIE
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     );
   };
@@ -135,11 +149,11 @@ const Calculators = () => {
             required
           />
 
-          <p>Twój wzrost w metrach: </p>
+          <p>Twój wzrost w centymetrach: </p>
           <input
             step="0.1"
             type="number"
-            placeholder="m"
+            placeholder="cm"
             value={height}
             onChange={(e) => setHeight(e.target.value)}
             required

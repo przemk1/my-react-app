@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 import Navigation from "../navigation/Navigation";
 import classes from "./Demand.module.scss";
+import { Link } from "react-router-dom";
 
 const Training = (props) => {
   return (
-    <div id="hidden-training">
+    <div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-          //for="form-user-training-time"
-        >
-          Czas treningu
-        </label>
+        <label className={classes.title__small}>Czas treningu</label>
         <div>
           <div>
             <input
@@ -29,11 +24,7 @@ const Training = (props) => {
         </div>
       </div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-          //for="form-user-training-count"
-        >
+        <label className={classes.title__small}>
           Ilość treningów w tygodniu
         </label>
         <div>
@@ -58,12 +49,7 @@ const Training = (props) => {
         </div>
       </div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-        >
-          Intensywność treningu
-        </label>
+        <label className={classes.title__small}>Intensywność treningu</label>
         <div className={classes.inp}>
           <label>
             <input
@@ -106,15 +92,9 @@ const Training = (props) => {
 
 const Cardio = (props) => {
   return (
-    <div id="hidden-cardio">
+    <div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-          //for="form-user-cardio-time"
-        >
-          Czas treningu
-        </label>
+        <label className={classes.title__small}>Czas treningu</label>
         <div>
           <div>
             <input
@@ -131,11 +111,7 @@ const Cardio = (props) => {
         </div>
       </div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-          //for="form-user-cardio-count"
-        >
+        <label className={classes.title__small}>
           Ilość treningów w tygodniu
         </label>
         <div>
@@ -160,12 +136,7 @@ const Cardio = (props) => {
         </div>
       </div>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-        >
-          Intensywność treningu
-        </label>
+        <label className={classes.title__small}>Intensywność treningu</label>
         <div className={classes.inp}>
           <label>
             <input
@@ -210,13 +181,7 @@ const Kcal = (props) => {
   return (
     <div className={classes.kcal}>
       <div className={classes.form__group}>
-        <label
-          className={classes.title__small}
-          //class="col-sm-4 control-label"
-          //for="form-calories-amount"
-        >
-          Twoja ilość kalorii
-        </label>
+        <label className={classes.title__small}>Twoja ilość kalorii</label>
         <div>
           <div>
             {typeof props.indicators.countedCalories === "number"
@@ -224,6 +189,17 @@ const Kcal = (props) => {
               : 0}
             <span>kcal</span>
           </div>
+        </div>
+      </div>
+      <div className={classes.demand__footer}>
+        <div>
+          <h3>Przejdź do diety i ułóż swój jadłospis:</h3>
+        </div>
+
+        <div>
+          <Link to="/diet">
+            <button className={classes.demand__footer__button}>DIETA</button>
+          </Link>
         </div>
       </div>
     </div>
@@ -246,6 +222,10 @@ const Demand = () => {
   const [cardioEffortType, setCardioEffortType] = useState("");
 
   const myRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [isShown, setIsShown] = useState(false);
 
@@ -412,13 +392,7 @@ const Demand = () => {
     console.log(newCountActivity());
     const newBalance = newRawBalance + newRawBalance * res.bodyType;
 
-    // const newBalance = parseInt(
-    //   indicators.rawBalance + indicators.rawBalance * res.bodyType
-    // );
     const newCountedCalories = newBalance + res.caloriesDiff;
-
-    // console.log(indicators.rawBalance);
-    // console.log(indicators.balance);
 
     setIndicators({
       countActivity: newCountActivity(),
@@ -461,50 +435,6 @@ const Demand = () => {
     console.log(res);
   };
 
-  // const setTrainingEnabled1 = (event) => {
-  //   event.preventDefault();
-  //   setIsShownTraining(true);
-  //   setRes({
-  //     gender: gender,
-  //     weight: weight,
-  //     height: height,
-  //     age: age,
-  //     bodyType: bodyType,
-  //     activityType: activityType,
-  //     caloriesDiff: caloriesDiff,
-  //     trainingTime: trainingTime,
-  //     trainingWeeklyCount: trainingWeeklyCount,
-  //     trainingEffortType: trainingEffortType,
-  //     cardioTime: cardioTime,
-  //     cardioWeeklyCount: cardioWeeklyCount,
-  //     cardioEffortType: cardioEffortType,
-  //     trainingEnabled: trainingEnabled,
-  //     cardioEnabled: cardioEnabled,
-  //   });
-  // };
-
-  // const setCardioEnabled1 = (event) => {
-  //   event.preventDefault();
-  //   setIsShownCardio(true);
-  //   setRes({
-  //     gender: gender,
-  //     weight: weight,
-  //     height: height,
-  //     age: age,
-  //     bodyType: bodyType,
-  //     activityType: activityType,
-  //     caloriesDiff: caloriesDiff,
-  //     trainingTime: trainingTime,
-  //     trainingWeeklyCount: trainingWeeklyCount,
-  //     trainingEffortType: trainingEffortType,
-  //     cardioTime: cardioTime,
-  //     cardioWeeklyCount: cardioWeeklyCount,
-  //     cardioEffortType: cardioEffortType,
-  //     trainingEnabled: trainingEnabled,
-  //     cardioEnabled: cardioEnabled,
-  //   });
-  // };
-
   return (
     <div className="app">
       <div className="BG"></div>
@@ -514,23 +444,13 @@ const Demand = () => {
           Oblicz swoje zapotrzebowanie kaloryczne
         </h2>
       </div>
-      <form
-        className={classes.form}
-        //class="form-horizontal"
-        //id="user-demand-form"
-      >
+      <form className={classes.form}>
         <div role="document">
           <div>
             <div>
-              {/* Tu jest wnetrze modal */}
               <div>
                 <div className={classes.form__group}>
-                  <label
-                    className={classes.title__small}
-                    //class="col-sm-4 control-label"
-                  >
-                    Płeć
-                  </label>
+                  <label className={classes.title__small}>Płeć</label>
                   <div className={classes.inp}>
                     <label>
                       <input
@@ -538,7 +458,6 @@ const Demand = () => {
                         type="radio"
                         value={5}
                         onChange={(e) => setGender(Number(e.target.value))}
-                        //checked={gender === 5}
                       />
                       Mężczyzna
                     </label>
@@ -547,7 +466,6 @@ const Demand = () => {
                         name="gender"
                         type="radio"
                         value={-161}
-                        //checked={gender === -161}
                         onChange={(e) => setGender(Number(e.target.value))}
                       />
                       Kobieta
@@ -555,13 +473,7 @@ const Demand = () => {
                   </div>
                 </div>
                 <div className={classes.form__group}>
-                  <label
-                    className={classes.title__small}
-                    //class="col-sm-4 control-label"
-                    //for="form-user-age"
-                  >
-                    Twój wiek
-                  </label>
+                  <label className={classes.title__small}>Twój wiek</label>
                   <div>
                     <div>
                       <input
@@ -579,13 +491,7 @@ const Demand = () => {
                 </div>
               </div>
               <div className={classes.form__group}>
-                <label
-                  className={classes.title__small}
-                  //class="col-sm-4 control-label"
-                  //for="form-user-weight"
-                >
-                  Twoja waga
-                </label>
+                <label className={classes.title__small}>Twoja waga</label>
                 <div>
                   <div>
                     <input
@@ -603,13 +509,7 @@ const Demand = () => {
               </div>
               <div>
                 <div className={classes.form__group}>
-                  <label
-                    className={classes.title__small}
-                    //class="col-sm-4 control-label"
-                    //for="form-user-height"
-                  >
-                    Twój wzrost
-                  </label>
+                  <label className={classes.title__small}>Twój wzrost</label>
                   <div>
                     <div>
                       <input
@@ -626,12 +526,7 @@ const Demand = () => {
                   </div>
                 </div>
                 <div className={classes.form__group}>
-                  <label
-                    className={classes.title__small}
-                    //class="col-sm-4 control-label"
-                  >
-                    Typ budowy
-                  </label>
+                  <label className={classes.title__small}>Typ budowy</label>
                   <div className={classes.inp}>
                     <label>
                       <input
@@ -663,10 +558,7 @@ const Demand = () => {
                   </div>
                 </div>
                 <div className={classes.form__group}>
-                  <label
-                    className={classes.title__small}
-                    //class="col-sm-4 control-label"
-                  >
+                  <label className={classes.title__small}>
                     Dzienna aktywność (poza treningami)
                   </label>
                   <div className={classes.inp}>
@@ -707,14 +599,10 @@ const Demand = () => {
                 </div>
 
                 <div className={classes.form__group}>
-                  <div
-                    className={classes.training}
-                    //class="col-sm-offset-4 col-sm-8 checkbox"
-                  >
+                  <div className={classes.training}>
                     <label className={classes.checkbox}>
                       <input
                         value="showTraining"
-                        //onChange={(e) => setTrainingEnabled1(e.target.checked)}
                         onChange={() => setShowTraining(!showTraining)}
                         type="checkbox"
                         id="training-checkbox"
@@ -735,14 +623,10 @@ const Demand = () => {
                 {/* <div ref={myRef}>{isShownTraining && <Training />}</div> */}
 
                 <div className={classes.form__group}>
-                  <div
-                    className={classes.training}
-                    //class="col-sm-offset-4 col-sm-8 checkbox"
-                  >
+                  <div className={classes.training}>
                     <label className={classes.checkbox}>
                       <input
                         value="showCardio"
-                        //onChange={(e) => setCardioEnabled1(e.target.checked)}
                         onChange={() => setShowCardio((prev) => !prev)}
                         type="checkbox"
                         id="cardio-checkbox"
@@ -767,11 +651,7 @@ const Demand = () => {
                   dodaj do zapotrzebowania np 300kcal.
                 </div>
                 <div className={classes.form__group}>
-                  <div
-                    className={classes.title__small__kcal}
-                    //class="col-sm-4 control-label"
-                    //for="form-user-calories-difference"
-                  >
+                  <div className={classes.title__small__kcal}>
                     Różnica kaloryczna
                   </div>
                   <div>

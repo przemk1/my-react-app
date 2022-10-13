@@ -1,62 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import classes from "./Diet.module.scss";
 import Navigation from "../navigation/Navigation";
 import Meal from "./meal/Meal";
 
+export const DietContext = createContext();
+
 const Diet = () => {
-  const countMeals = (e) => {
-    console.log(e);
+  const [macros, setMacros] = useState({});
+  const provided = {
+    value: macros,
+    setValue: (value) => setMacros(value),
   };
-  const [totalProtein, setTotalProtein] = useState(0);
   const [components, setComponents] = useState([1]);
+
   const addComponent = () => {
     const number = components.length + 1;
     setComponents([...components, number]);
   };
-  console.log(components);
+
+  const totalValues = (value) => {
+    let sum = 0;
+    Object.values(macros).forEach((e) => {
+      sum += e[value];
+    });
+    return sum;
+  };
+
   return (
-    <div className="app">
-      <div className="BG"></div>
-      <Navigation />
-      <div className={classes.header}>
-        <h2 className={classes.diet__header}>Ułuż swoją przykładową dietę</h2>
-      </div>
-      <div>
-        <div className={classes.line__1}>
-          <div>
-            <ul className={classes.rows1}>
-              <li>Wybierz produkt</li>
-              <li>Ilość gram</li>
-            </ul>
-          </div>
-          <div>
-            <ul className={classes.rows2}>
-              <li>Białko</li>
-              <li>Tłuszcze</li>
-              <li>Węglowodany</li>
-              <li>Kalorie</li>
-            </ul>
+    <DietContext.Provider value={provided}>
+      <div className="app">
+        <div className="BG"></div>
+        <Navigation />
+        <div className={classes.header}>
+          <h2 className={classes.diet__header}>
+            Ułóż swoją przykładową dietę
+            <br />
+            zgodnie ze swoim zapotrzebowaniem
+          </h2>
+        </div>
+        <div>
+          <div className={classes.line__1}>
+            <div>
+              <ul className={classes.rows1}>
+                <li>Wybierz produkt</li>
+                <li>Ilość gram</li>
+              </ul>
+            </div>
+            <div>
+              <ul className={classes.rows2}>
+                <li>Białko</li>
+                <li>Tłuszcze</li>
+                <li>Węglowodany</li>
+                <li>Kalorie</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <ul>
-          {components.map((item) => (
-            <Meal
-              products={products}
-              countMeals={countMeals}
-              protein={0}
-              setProtein={setTotalProtein}
-            />
-          ))}
-        </ul>
-      </div>
+        <div>
+          <ul>
+            {components.map((item) => (
+              <Meal key={item} products={products} item={item} />
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className={classes.line__1}>
+            <div>
+              <ul className={classes.rows1}>
+                <li>Wybierz produkt</li>
+                <li>Ilość gram</li>
+              </ul>
+            </div>
+            <div>
+              <ul className={classes.rows2}>
+                <li>{totalValues("protein").toFixed(1)} g</li>
+                <li>{totalValues("fat").toFixed(1)} g</li>
+                <li>{totalValues("carbo").toFixed(1)} g </li>
+                <li>{totalValues("kcal").toFixed()} kcal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-      <button className={classes.diet__button} onClick={addComponent}>
-        Dodaj produkt
-      </button>
-      {totalProtein}
-    </div>
+        <button className={classes.diet__button} onClick={addComponent}>
+          Dodaj produkt
+        </button>
+      </div>
+    </DietContext.Provider>
   );
 };
 
